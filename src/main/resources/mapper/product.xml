@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cos.springProduct.repository.ProductRepository">
+
+	<select id="findAll" resultType="com.cos.springProduct.dto.ResponseProductDto">
+		select * from product order by id DESC
+	</select>
+	
+	<select id="findAllType" resultType="com.cos.springProduct.dto.ResponseProductDto">
+		select * from product where
+		type=#{type} order by id DESC
+	</select>
+	<select id="OrderByAllByPrice" resultType="com.cos.springProduct.dto.ResponseProductDto">
+		select * from product order by price DESC
+	</select>
+	<select id="OrderByAllByOrderCount" resultType="com.cos.springProduct.dto.ResponseProductDto">
+		select * from product order by orderCount DESC 
+	</select>
+	
+	<select id="OrderByPrice" resultType="com.cos.springProduct.dto.ResponseProductDto">
+		select * from product where type=#{type} order by price DESC
+	</select>
+	<select id="OrderByOrderCount" resultType="com.cos.springProduct.dto.ResponseProductDto">
+		select * from product where type=#{type} order by orderCount DESC
+	</select>
+
+</mapper>
